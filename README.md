@@ -1,104 +1,99 @@
-# Malcolm
-<!DOCTYPE html>
+#malcolm<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Joyeux Anniversaire MALCOLM !</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap'); /* Police stylée */
+        @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
 
         body {
-            background-color: #0d1a2f; /* Fond plus sombre pour le cosmos */
+            background-color: #0b0d17;
             color: white;
-            font-family: 'Luckiest Guy', cursive; /* Police DBZ-like */
+            font-family: 'Luckiest Guy', cursive;
             margin: 0;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            overflow: hidden;
+            min-height: 100vh;
             text-align: center;
-            position: relative;
+            overflow-x: hidden;
         }
 
-        .ki-charge {
-            position: absolute;
-            width: 150px;
-            height: 150px;
-            background: radial-gradient(circle, rgba(255,204,0,0.8) 0%, rgba(255,140,0,0.6) 50%, rgba(255,140,0,0) 70%);
-            border-radius: 50%;
-            transform: scale(0);
-            animation: chargeKi 2s forwards, pulseKi 1s infinite alternate 2s;
+        /* L'aura de fond */
+        .aura-bg {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,165,0,0.4) 0%, rgba(255,69,0,0) 70%);
+            filter: blur(30px);
+            animation: pulse 2s infinite alternate;
             z-index: 1;
         }
 
-        @keyframes chargeKi {
-            0% { transform: scale(0); opacity: 0; }
-            50% { transform: scale(1.5); opacity: 1; }
-            100% { transform: scale(1); opacity: 0.9; }
-        }
-
-        @keyframes pulseKi {
-            from { transform: scale(1); }
-            to { transform: scale(1.1); }
-        }
-
-        .content {
+        .container {
             position: relative;
             z-index: 2;
-            opacity: 0;
-            animation: fadeIn 2s forwards 2.5s; /* Apparaît après le chargement du Ki */
+            padding: 20px;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* Image de personnage (GIF) */
+        .character {
+            width: 200px; /* Taille du personnage */
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 15px #ffcc00);
+            animation: float 3s ease-in-out infinite;
         }
 
         h1 {
-            color: #ffcc00; /* Jaune Super Saiyan */
-            font-size: 3.5rem;
-            text-shadow: 4px 4px 0 #ff8c00, 6px 6px 0 #0047ab; /* Orange et Bleu pour le contour */
-            margin-bottom: 20px;
-            letter-spacing: 3px;
+            color: #ffcc00;
+            font-size: 3rem;
+            text-shadow: 3px 3px 0 #ff8c00, 5px 5px 0 #0047ab;
+            margin: 10px 0;
         }
+
         .message {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
+            max-width: 600px;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px solid #ff8c00;
             line-height: 1.4;
-            color: #f1f1f1;
-            max-width: 700px;
-            margin: 0 auto;
         }
-        .malcolm {
-            color: #ffcc00; /* Son prénom en jaune éclatant */
-            font-size: 1.2em;
-        }
-        .heart-icon {
-            font-size: 2em;
+
+        .heart {
+            font-size: 40px;
             color: #ff004f;
-            margin-top: 20px;
             display: block;
-            animation: beat 1s infinite;
+            margin-top: 15px;
+            animation: beat 0.8s infinite;
         }
-         @keyframes beat {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-        }
+
+        @keyframes pulse { from { opacity: 0.5; transform: translate(-50%, -50%) scale(1); } to { opacity: 1; transform: translate(-50%, -50%) scale(1.5); } }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+        @keyframes beat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
     </style>
 </head>
 <body>
 
-    <div class="ki-charge"></div>
+    <div class="aura-bg"></div>
 
-    <div class="content">
-        <h1>Joyeux Anniversaire <span class="malcolm">MALCOLM</span> !</h1>
-        <p class="message">
-            Merci d'être toi, mon incroyable guerrier Saiyan. <br>
-            Je t'aime de tout mon cœur, plus fort que n'importe quel Kamehameha. <br>
-            Profite à fond de ta journée !
-        </p>
-        <span class="heart-icon">❤️</span>
+    <div class="container">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJid3R6bmJpZnR6bmJpZnR6bmJpZnR6bmJpZnR6bmJpZnR6bmJpZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/bLy8c3EThKm4WCDCcx/giphy.gif" alt="Goku" class="character">
+        
+        <h1>Joyeux Anniversaire <br> MALCOLM !</h1>
+        
+        <div class="message">
+            Merci d’être toi, je t’aime de tout mon cœur ❤️ <br>
+            Profite de ta journée, mon guerrier !
+        </div>
+
+        <span class="heart">❤️</span>
     </div>
 
 </body>
